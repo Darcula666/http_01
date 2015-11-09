@@ -6,18 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.ImageView;
 
 
 public class MainActivity extends AppCompatActivity {
     private WebView webView;
     private Handler handler = new Handler();
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = (WebView) findViewById(R.id.webView);
-        new HttpThread("http://www.baidu.com", handler,webView).start();
+        imageView= (ImageView) findViewById(R.id.imageView);
+        new HttpThread("http://img0.imgtn.bdimg.com/it/u=1070902365,2619384777&fm=21&gp=0.jpg", handler,imageView).start();
     }
 
     @Override
